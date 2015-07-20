@@ -1,2 +1,0 @@
-# lovepay
-love to pay
