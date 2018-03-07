@@ -20,8 +20,8 @@ public class ReplaceYml {
 	
 	private static void dealConfig(){
         String classLoaderPath = Thread.currentThread().getContextClassLoader().getSystemResource("").getPath();
-        String propertiesPath = classLoaderPath.substring(0, classLoaderPath.lastIndexOf("bin")) + "conf/config.properties";
-        String ymlPath = classLoaderPath.substring(0, classLoaderPath.lastIndexOf("bin")) + "config/elasticsearch.yml";
+        String propertiesPath = classLoaderPath.substring(0, classLoaderPath.lastIndexOf("lib")) + "conf/config.properties";
+        String ymlPath = classLoaderPath.substring(0, classLoaderPath.lastIndexOf("lib")) + "config/elasticsearch.yml";
 		System.out.println(propertiesPath);
 		System.out.println(ymlPath);
 		try {
