@@ -2,10 +2,12 @@ package yml.test;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -16,12 +18,33 @@ public class ReplaceYml {
 	
 	public static void main(String[] args) throws Exception {
 		dealConfig();
+		printPath();
+	}
+	
+	private static void printPath() throws Exception{ 
+        File f = new File(ReplaceYml.class.getResource("/").getPath());
+        System.out.println(f);
+
+        File f2 = new File(ReplaceYml.class.getResource("").getPath());
+        System.out.println(f2);
+
+        File directory = new File("");// 参数为空
+        String courseFile = directory.getCanonicalPath();
+        System.out.println(courseFile);
+
+        URL xmlpath = ReplaceYml.class.getClassLoader().getResource("");
+        System.out.println(xmlpath);
+
+        System.out.println(System.getProperty("user.dir"));
+
+        System.out.println(System.getProperty("java.class.path"));
 	}
 	
 	private static void dealConfig(){
-        String classLoaderPath = Thread.currentThread().getContextClassLoader().getSystemResource("").getPath();
-        String propertiesPath = classLoaderPath.substring(0, classLoaderPath.lastIndexOf("lib")) + "conf/config.properties";
-        String ymlPath = classLoaderPath.substring(0, classLoaderPath.lastIndexOf("lib")) + "config/elasticsearch.yml";
+        Thread.currentThread().getContextClassLoader();
+		String classLoaderPath = ClassLoader.getSystemResource("").getPath();
+        String propertiesPath = classLoaderPath.substring(0, classLoaderPath.lastIndexOf("bin")) + "conf/config.properties";
+        String ymlPath = classLoaderPath.substring(0, classLoaderPath.lastIndexOf("bin")) + "config/elasticsearch.yml";
 		System.out.println(propertiesPath);
 		System.out.println(ymlPath);
 		try {
