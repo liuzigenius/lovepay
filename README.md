@@ -250,6 +250,4 @@
 
 ## ANY QUESTIONS ##
 
-PHONE:15606819026
-
 EMAIL:liuzigenius@126.com
